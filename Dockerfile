@@ -7,4 +7,5 @@ RUN git clone https://github.com/drone/drone src/github.com/drone/drone/cmd/dron
 FROM debian:stable
 CMD ["/opt/drone-server/bin/drone-server"]
 
+RUN apt update -y && apt install -y ca-certificates && rm -rf /var/cache/apt/*
 COPY --from=builder /go/bin/drone-server /opt/drone-server/bin/
