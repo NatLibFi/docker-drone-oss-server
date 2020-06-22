@@ -8,9 +8,10 @@ steps:
   image: quay.io/natlibfi/drone-gen-tags
 
 - name: docker
-  image: plugins/docker:18
+  image: plugins/docker
   settings:
     registry: quay.io
+    repo: quay.io/natlibfi/drone-oss-server
     username:
       from_secret: docker_username
     password:
@@ -24,7 +25,3 @@ kind: secret
 name: docker_password
 data: hBUm2iEPy1n2e1lJ9tKYmqaKU2iSPWBZBK3Qa69y7KzScPULQloPSidRbhNoJyruxXBiCNSAxMXF0EJ3/IazTN8FGHF7gblvhT35EwuW823M8GOvVapdbNAj2Qs=
 ---
-kind: signature
-hmac: 05a2075c02516ce11c8b7fbf8530e50777944a2de787af7de806d3fc05ee0dcd
-
-...
