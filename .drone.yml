@@ -5,21 +5,16 @@ name: default
 
 steps:
 - name: generate-tags
-  image: quay.io/natlibfi/drone-gen-tags
+  image: quay.io/natlibfi/drone-gen-tags:18
 
-- name: test
-  image: busybox
-  commands:
-    - cat .tags
-
-#- name: docker
-#  image: plugins/docker
-#  settings:
-#    registry: quay.io
-#    username:
-#      from_secret: docker_username
-#    password:
-#      from_secret: docker_password
+- name: docker
+  image: plugins/docker
+  settings:
+    registry: quay.io
+    username:
+      from_secret: docker_username
+    password:
+      from_secret: docker_password
 ---
 kind: secret
 name: docker_username
