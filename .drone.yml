@@ -5,10 +5,10 @@ name: default
 
 steps:
 - name: generate-tags
-  image: quay.io/natlibfi/drone-gen-tags:18
+  image: quay.io/natlibfi/drone-gen-tags
 
 - name: docker
-  image: plugins/docker
+  image: plugins/docker:18
   settings:
     registry: quay.io
     username:
