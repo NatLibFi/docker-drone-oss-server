@@ -5,7 +5,6 @@ ARG TAG_PATTERN='v1*'
 RUN git clone https://github.com/natlibfi-arlehiko/drone src/github.com/drone/drone/cmd/drone-server \
   && cd src/github.com/drone/drone/cmd/drone-server \
   && git checkout fix-image-pull-secrets \
-  && git checkout `git tag -l $TAG_PATTERN|grep -E '^v[0-9\.]+$'|sort -r|head -n1` \  
   && go install -tags "oss nolimit" github.com/drone/drone/cmd/drone-server
 
 FROM debian:stable
