@@ -14,5 +14,5 @@ RUN apt update -y && apt install -y ca-certificates && rm -rf /var/cache/apt/*
 COPY --from=builder /go/bin/drone-server /opt/drone-server/bin/
 RUN chown -R 1001:1001 /opt/drone-server/ \
  && chgrp -R 0 /opt/drone-server/ \
- && chown -R g=u /opt/drone-server/ \
+ && chmod -R g=u /opt/drone-server/ \
  && chmod +x /opt/drone-server/
