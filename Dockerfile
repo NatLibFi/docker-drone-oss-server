@@ -10,9 +10,9 @@ RUN git clone https://github.com/natlibfi/drone src/github.com/drone/drone/cmd/d
 FROM debian:stable
 CMD ["/opt/drone-server/bin/drone-server"]
 
+RUN apt update -y && apt install -y ca-certificates && rm -rf /var/cache/apt/*
+COPY --from=builder /go/bin/drone-server /opt/drone-server/bin/
 RUN chown -R 1001:1001 /opt/drone-server/ \
  && chgrp -R 0 /opt/drone-server/ \
  && chown -R g=u /opt/drone-server/ \
- && chmod +x /opt/drone-server/ \
- && apt update -y && apt install -y ca-certificates && rm -rf /var/cache/apt/*
-COPY --from=builder /go/bin/drone-server /opt/drone-server/bin/
+ && chmod +x /opt/drone-server/
