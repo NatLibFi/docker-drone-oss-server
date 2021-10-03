@@ -4,7 +4,7 @@ ARG TAG_PATTERN='v1*'
 
 RUN git clone https://github.com/natlibfi/drone src/github.com/drone/drone/cmd/drone-server \
   && cd src/github.com/drone/drone/cmd/drone-server \
-  && git checkout fix-image-pull-secrets \
+  && git checkout os-test \
   && go install -tags "oss nolimit" github.com/drone/drone/cmd/drone-server
 
 FROM debian:stable
