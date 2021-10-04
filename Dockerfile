@@ -12,3 +12,4 @@ CMD ["/opt/drone-server/bin/drone-server"]
 
 RUN apt update -y && apt install -y ca-certificates && rm -rf /var/cache/apt/*
 COPY --from=builder /go/bin/drone-server /opt/drone-server/bin/
+
